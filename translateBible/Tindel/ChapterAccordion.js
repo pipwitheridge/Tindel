@@ -64,9 +64,20 @@ setWrenchModalVisible = (visible) => {
         fontWeight: 'bold',
         textAlign: 'center'
       },
+      collapseHeader: {
+        marginBottom: 15,
+        textAlign: 'center',
+        fontSize: 20
+      },
       modalText: {
         marginBottom: 15,
         textAlign: 'center'
+      }, 
+      collapseBody: {
+        padding: 20, 
+        marginBottom: 20, 
+        width: '90%', 
+        backgroundColor: '#e0e0e0'
       }
     });
 
@@ -142,20 +153,49 @@ setWrenchModalVisible = (visible) => {
             this.setModalVisible(!modalVisible);
           }}
         >
-          <View style={styles.centeredView}>
-              <Text style={{fontWeight: "bold", marginBottom: 15}}>Welcome to Tindel!</Text>
-              <Text style={styles.modalText}>Practice bible translation on the go!</Text>
+          <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal: 20}}>
+            <View style={{alignItems: 'center', marginTop: 100, marginBottom: 100}}>
+            <Collapse style={{alignItems: 'center'}}>
+            <CollapseHeader><View style={{marginBottom: 20}}><Text style={styles.collapseHeader}>What is Tindel?</Text></View></CollapseHeader>
+            <CollapseBody style={styles.collapseBody}>
+            <Text style={styles.modalText}>Tindel lets you practice bible translation on the go! It also helps people find verses suitable for their skill level.</Text> 
+            <Text style={styles.modalText}>The App is called Tindel as a homage to William Tyndale, who first translated the Bible into English from the original Greek and Hebrew text.</Text>           
+            </CollapseBody>
+            </Collapse>
+            <Collapse style={{alignItems: 'center'}}>
+            <CollapseHeader><View style={{marginBottom: 20}}><Text style={styles.collapseHeader}>How do I use it?</Text></View></CollapseHeader>
+            <CollapseBody style={styles.collapseBody}>
+              
               <Text style={styles.modalText}>1: Choose a chapter.</Text>
-              <Text style={styles.modalText}>2: Type in your translation under each verse.</Text>
+              <Text style={styles.modalText}>2: Type your translation in the input box (or just translate in your head).</Text>
               <Text style={styles.modalText}>3: Click the Hebrew/Greek text to reveal an English version.</Text>
               <Text style={styles.modalText}>4: See how your translation compares!</Text>
-
-              <Text style={styles.modalText}>Use the wrench at the top of the homepage to filter verses by how many occurrences their words have in the bible.</Text>
+              <Text style={styles.modalText}>Use the wrench at the top of the homepage to filter verses by their difficulty. You can filter verses based on how many occurrences their words have in the bible.</Text>
               <Text style={styles.modalText}>For example, choosing 90+ means you'll only see verses whose words all occur at least 90 times in the bible.</Text>
+              
+            </CollapseBody>
+            </Collapse>
+            <Collapse style={{alignItems: 'center'}}>
+            <CollapseHeader><View style={{marginBottom: 20}}><Text style={styles.collapseHeader}>Which Bible versions does it use?</Text></View></CollapseHeader>
+            <CollapseBody style={styles.collapseBody}>
+              <Text style={styles.modalText}>The English version used is called WEB (World English Bible). It's a fairly literal translation which many find helpful as a starting point.</Text>
+              <Text style={styles.modalText}>The Hebrew version used is called WLC (Westminster Leningrad Codex).</Text>
+              <Text style={styles.modalText}>The Greek version used is called SBLGNT (Greek New Testament from the Society of Biblical Literature).</Text>
+              <Text style={styles.modalText}>Each version is either in the public domain or is used in a way that conforms to fair use standards.</Text>
+            </CollapseBody>
+            </Collapse>
 
-              <Text style={styles.modalText}>The English version used is a public domain translation called WEB (World English Bible). It's a fairly literal translation which many find helpful as a starting point.</Text>
+            <Collapse style={{alignItems: 'center'}}>
+            <CollapseHeader><View style={{marginBottom: 20}}><Text style={styles.collapseHeader}>How do I submit feedback / questions?</Text></View></CollapseHeader>
+            <CollapseBody style={styles.collapseBody}>
+              <Text style={styles.modalText}>Email phillipwitheridge@gmail.com</Text>
+              <Text style={styles.modalText}>I'd love to hear from you about how I could improve this app!</Text>
+            </CollapseBody>
+            </Collapse>
 
-              <Text style={styles.modalText}>The App is called Tindel as a homage to William Tyndale, who first translated the Bible into English from the original Greek and Hebrew text.</Text>
+              
+
+
 
 
               <TouchableOpacity
@@ -164,7 +204,9 @@ setWrenchModalVisible = (visible) => {
               >
                 <Text style={styles.textStyle}>Close</Text>
               </TouchableOpacity>
-            </View>
+
+              </View>
+            </ScrollView>
         </Modal>
 
 
